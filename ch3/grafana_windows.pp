@@ -5,7 +5,7 @@ service { 'grafana':
   ensure       => 'running',
   enable       => 'true',
   logonaccount => 'LocalSystem',
-  require      => package['grafana']
+  require      => Package['grafana']
 }
 file { 'C:\Program Files\GrafanaLabs\grafana\conf\grafana.ini':
   ensure  => 'file',
