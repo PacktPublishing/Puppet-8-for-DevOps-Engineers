@@ -16,9 +16,9 @@ class example_functions (
   warning("getvar('os.windows.product_name','linux') ")
 
   if $facts['os.family'] == 'windows' {
-    $audit_files = split($example_split, /;/)
+    $audit_files = split($facts['path'], /;/)
   } else {
-    $audit_files = split($example_split, /:/)
+    $audit_files = split($facts['path'], /:/)
   }
   files { "$audit_files" :
     audit => true
