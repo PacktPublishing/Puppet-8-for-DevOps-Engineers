@@ -1,0 +1,3 @@
+puppet query 'fact[certname,memory.system.total]{ trusted.extensions.pp_auth_role = "pe_compiler"}'
+puppet query 'resources[title]{type = "Service" and certname = "pe-server-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net"}'
+puppet query 'reports[start_time, end_time] {latest_report? = true}'
