@@ -1,0 +1,4 @@
+[root@pe-server-davidsand-0-cffe02 ~]# puppetserver ca clean --certname pe-instance-davidsan
+d-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net
+Certificate for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net has been revoked
+Cleaned files related to pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net

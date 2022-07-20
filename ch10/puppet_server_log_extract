@@ -1,0 +1,20 @@
+## We can see the calls made to the certificate authority as the seerver is revoked in our first commands
+2022-07-15T12:52:18.386Z INFO  [qtp1273425087-121353] [p.p.certificate-authority] Revoked 1 certificate: pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net
+2022-07-15T12:52:18.393Z WARN  [qtp1273425087-123900] [p.p.certificate-authority] No certificate request for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net at expected path /etc/puppetlabs/puppetserver/ca/requests/pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net.pem
+2022-07-15T12:52:18.698Z INFO  [clojure-agent-send-off-pool-1] [o.e.j.u.s.SslContextFactory] x509=X509@1da26682(private key,h=[pe-server-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net, pe-server-davidsand-0-cffe02.westus2.cloudapp.azure.com, puppet],a=[],w=[]) for InternalSslContextFactory@4bd708b1[provider=null,keyStore=null,trustStore=null]
+2022-07-15T12:52:18.701Z INFO  [clojure-agent-send-off-pool-1] [o.e.j.u.s.SslContextFactory] x509=X509@96b5019(private key,h=[pe-server-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net, pe-server-davidsand-0-cffe02.westus2.cloudapp.azure.com, puppet],a=[],w=[]) for InternalSslContextFactory@592d71e8[provider=null,keyStore=null,trustStore=null]
+
+## This is the log confirming the certificate has been signed
+2022-07-15T13:09:46.540Z INFO  [qtp1273425087-121353] [p.p.certificate-authority] Signed certificate request for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net
+
+## Catalog run we can see that the server has a signed certificate so ignores the submitted CSR
+2022-07-15T13:10:43.922Z ERROR [qtp1273425087-123183] [p.s.c.certificate-authority-core] pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net already has a signed certificate; ignoring certificate request
+## The server has submitted facts which get saved into PuppetDB
+2022-07-15T13:10:47.589Z INFO  [qtp1273425087-123183] [puppetserver] Puppet 'replace_facts' command for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net submitted to PuppetDB with UUID 231be5c9-395b-414e-85cb-1e06f6e0e5c2
+## The next 4 steps ensure the catalog is compiled and cached before being put into PuppetDB
+2022-07-15T13:10:48.411Z INFO  [qtp1273425087-123183] [puppetserver] Puppet Inlined resource metadata into static catalog for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net in environment production in 0.00 seconds
+2022-07-15T13:10:48.411Z INFO  [qtp1273425087-123183] [puppetserver] Puppet Compiled static catalog for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net in environment production in 0.72 seconds
+2022-07-15T13:10:48.411Z INFO  [qtp1273425087-123183] [puppetserver] Puppet Caching catalog for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net
+2022-07-15T13:10:48.717Z INFO  [qtp1273425087-123183] [puppetserver] Puppet 'replace_catalog' command for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net submitted to PuppetDB with UUID 84cfea29-1e0b-4df4-8a8d-15bf92a770a5
+# The report returned by the server is stored in PuppetDB
+2022-07-15T13:10:52.312Z INFO  [qtp1273425087-123183] [puppetserver] Puppet 'store_report' command for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net submitted to PuppetDB with UUID e6b60b18-45ed-40e5-be6f-3f2f6a3a7e89

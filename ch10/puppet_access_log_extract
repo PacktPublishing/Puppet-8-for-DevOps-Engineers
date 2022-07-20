@@ -1,0 +1,22 @@
+## We see the four server call as in figure 10.1 
+10.138.1.5 - - [15/Jul/2022:12:56:03 +0000] "GET /puppet-ca/v1/certificate/ca HTTP/1.1" 200 3903 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 3 - -
+10.138.1.5 - - [15/Jul/2022:12:56:03 +0000] "GET /puppet-ca/v1/certificate_revocation_list/ca HTTP/1.1" 200 1982 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 4 - -
+10.138.1.5 - - [15/Jul/2022:12:56:06 +0000] "PUT /puppet-ca/v1/certificate_request/pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net HTTP/1.1" 200 0 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 46 1683 -
+10.138.1.5 - - [15/Jul/2022:12:56:06 +0000] "GET /puppet-ca/v1/certificate/pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net HTTP/1.1" 404 109 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 1 - -
+
+
+## This is the certificate api call as the Server signs the instance
+10.138.1.4 - - [15/Jul/2022:13:09:46 +0000] "PUT /puppet-ca/v1/certificate_status/pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net HTTP/1.1" 204 0 "-" "Apache-HttpAsyncClient/4.1.4 (Java/11.0.14-internal)" 443 26 -
+
+## This is the host submitting its new CSR and requesting certificate
+10.138.1.5 - - [15/Jul/2022:13:10:43 +0000] "PUT /puppet-ca/v1/certificate_request/pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net HTTP/1.1" 400 145 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 3 1683 -
+10.138.1.5 - - [15/Jul/2022:13:10:43 +0000] "GET /puppet-ca/v1/certificate/pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net HTTP/1.1" 200 2216 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 1 - -
+
+## The first calls to file_metadata plugins searches lib directories of every module and merges them together while plugin facts searches facts.d and merges them
+10.138.1.5 - - [15/Jul/2022:13:10:44 +0000] "GET /puppet/v3/file_metadatas/plugins?recurse=false&links=manage&checksum_type=sha256&source_permissions=ignore&environment=production HTTP/1.1" 200 261 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 14 - 11
+10.138.1.5 - - [15/Jul/2022:13:10:44 +0000] "GET /puppet/v3/file_metadatas/pluginfacts?recurse=true&max_files=-1&ignore=.svn&ignore=CVS&ignore=.git&ignore=.hg&links=follow&checksum_type=sha256&source_permissions=use&environment=production HTTP/1.1" 200 251 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 4 - 1
+10.138.1.5 - - [15/Jul/2022:13:10:45 +0000] "GET /puppet/v3/file_metadatas/plugins?recurse=true&max_files=-1&ignore=.svn&ignore=CVS&ignore=.git&ignore=.hg&links=follow&checksum_type=sha256&source_permissions=ignore&environment=production HTTP/1.1" 200 204310 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 91 - 85
+## This request get the catalog to apply from the server
+10.138.1.5 - - [15/Jul/2022:13:10:48 +0000] "POST /puppet/v3/catalog/pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net?environment=production HTTP/1.1" 200 443074 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 1433 32897 1422
+## Following application a report is then returned
+10.138.1.5 - - [15/Jul/2022:13:10:52 +0000] "PUT /puppet/v3/report/pe-instance-davidsand-0-c-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net?environment=production HTTP/1.1" 200 12 "-" "Puppet/7.14.0 Ruby/2.7.5-p203 (x86_64-linux)" 269 85753 266

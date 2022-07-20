@@ -7,7 +7,7 @@ file { 'c:\inetpub\wwwroot':
 
 file { 'c:\inetpub\wwwroot\page':
   ensure       => 'file',
-  source       => 'nfsshare1:\\publish\page.html',
+  source       => 'c:\publish\page.html',
   validate_cmd => 'c:\program files\httpvalidator\httpvlidate.exe'
 }
 

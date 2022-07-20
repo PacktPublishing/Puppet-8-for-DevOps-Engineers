@@ -1,0 +1,28 @@
+[root@pe-instance-davidsand-0-cffe02 ~]# puppet ssl clean
+Notice: Removed private key /etc/puppetlabs/puppet/ssl/private_keys/pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net.pem
+Notice: Removed certificate /etc/puppetlabs/puppet/ssl/certs/pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net.pem
+[root@pe-instance-davidsand-0-cffe02 ~]#
+
+[root@pe-instance-davidsand-0-cffe02 ~]# puppet agent -t
+Info: Creating a new RSA SSL key for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net
+Info: csr_attributes file loading from /etc/puppetlabs/puppet/csr_attributes.yaml
+Info: Creating a new SSL certificate request for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net
+Info: Certificate Request fingerprint (SHA256): 4B:59:73:A3:89:26:4C:F7:73:B5:B6:DF:41:75:94:EB:EE:C4:F5:0A:56:62:09:5D:17:01:5E:88:91:8F:EF:41
+Info: Certificate for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net has not been signed yet
+Couldn't fetch certificate from CA server; you might still need to sign this agent's certificate (pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net).
+Exiting now because the waitforcert setting is set to 0.
+
+
+
+[root@pe-instance-davidsand-0-cffe02 ~]# puppet agent -t
+Info: csr_attributes file loading from /etc/puppetlabs/puppet/csr_attributes.yaml
+Info: Creating a new SSL certificate request for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net
+Info: Certificate Request fingerprint (SHA256): 4B:59:73:A3:89:26:4C:F7:73:B5:B6:DF:41:75:94:EB:EE:C4:F5:0A:56:62:09:5D:17:01:5E:88:91:8F:EF:41
+Info: Downloaded certificate for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net from https://pe-server-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net:8140/puppet-ca/v1
+Info: Using environment 'production'
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Loading facts
+Info: Caching catalog for pe-instance-davidsand-0-cffe02.tq2kpafq5bsehkpub4ur5a35ya.xx.internal.cloudapp.net
+Info: Applying configuration version 'pe-server-davidsand-0-cffe02-production-5a2123bbb4f'
+Notice: Applied catalog in 2.66 seconds
