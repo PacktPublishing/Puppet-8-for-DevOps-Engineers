@@ -1,0 +1,25 @@
+---
+version: 5
+
+defaults:
+  datadir: "data"
+
+hierarchy:
+  - name: "Yaml backend"
+    data_hash: yaml_data
+    paths:
+      - "nodes/%{trusted.certname}.yaml"
+      - "common.yaml"
+  - name: "Puppet Data Service"
+    data_hash: puppet_data_service::data_hash
+    uris:
+      - "nodes/%{trusted.certname}"
+      - "os/%{operatingsystem}"
+      - "common"
+    options:
+      # By default, the backend loads its configuration from 
+      # /etc/puppetlabs/pds-server/pds-cli.yaml. If the file does not exist,
+      # or if the file does not contain the required values, the backend will
+      # raise an exception and halt. Setting `on_config_absent` to "continue"
+      # will cause the backend to instead return `not_found` and continue.
+      on_config_absent: "continue"
