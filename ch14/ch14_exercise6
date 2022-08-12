@@ -1,0 +1,1 @@
+bolt plan run peadm::upgrade version=2021.6 primary_host=IP_OF_YOUR_PRIMARY
