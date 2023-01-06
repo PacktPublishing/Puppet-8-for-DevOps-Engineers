@@ -45,3 +45,6 @@ sudo apt install gh
  
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash 
 sudo apt install shellcheck
+
+curl -JLO ' https://pm.puppetlabs.com/pe-client-tools/2021.7.0/21.7.0/repos/deb/focal/PC1/pe-client-tools_21.7.0-1focal_amd64.deb'  
+sudo apt install ./pe-client-tools_21.7.0-1focal_amd64.deb 
