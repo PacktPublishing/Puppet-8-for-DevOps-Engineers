@@ -33,3 +33,5 @@ sudo dnf install azure-cli
 sudo yum install ShellCheck 
 
 sudo yum install puppet-bolt 
+
+sudo yum install https://pm.puppetlabs.com/pe-client-tools/2021.7.0/21.7.0/repos/el/8/PC1/x86_64/pe-client-tools-21.7.0-1.el8.x86_64.rpm 
