@@ -1,0 +1,5 @@
+<%# The answer would either need to change to <%#- or close on new line as shown %>
+<%-# this is a puppet language comment and it goes to new line -%> 
+-%>
+<%# Only the variable should be surronded by the tags not the surrounding text as shown %>
+This template was run on a machine with <%= $facts['processors']['count'] -%> cpus 

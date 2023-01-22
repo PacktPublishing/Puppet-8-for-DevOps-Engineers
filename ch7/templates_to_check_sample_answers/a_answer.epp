@@ -1,0 +1,7 @@
+<%# Only comments on first line the same output can be acheived moving this line after the paramters %>
+<%- |
+String $options = '',
+Enum[full,partial,none] $application_mode = 'none',
+Boolean $cluster_enabled,
+|-%> 
+This file is controlled by Puppet

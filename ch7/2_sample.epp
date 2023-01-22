@@ -1,0 +1,11 @@
+This is a <%= $facts['os']['family'] %> machine running version <%= $facts['os']['release']['full'] %>
+The following directories are in the path<%- $seperator = $facts['os']['family'] ? { 
+'Redhat' => ':', 
+/(Debian|Ubuntu)/ => ':',  
+'Windows' => ';', 
+default => ':',   
+} 
+-%>
+<%- $facts[path].split($seperator).each | $path | { %>
+<%= $path -%>
+<%-} -%>

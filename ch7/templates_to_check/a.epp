@@ -1,0 +1,6 @@
+This file is controlled by Puppet
+<%- |
+String $options = '',
+Enum[full,partial,none] $application_mode = 'none',
+Boolean $cluster_enabled,
+|-%> 

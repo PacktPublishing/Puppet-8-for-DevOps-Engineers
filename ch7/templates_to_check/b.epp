@@ -1,0 +1,2 @@
+<%-# this is a puppet language comment and it goes to new line -%> 
+<%= This template was run on a machine with $facts['processors']['count'] cpus -%>
