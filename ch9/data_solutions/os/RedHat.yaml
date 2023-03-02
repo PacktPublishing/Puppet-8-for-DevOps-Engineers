@@ -1,0 +1,3 @@
+---
+profile::error::example: 'I am a RedHat family box'
+# The filename must match the facts output exactly so it is RedHat.yaml not redhat.yaml
