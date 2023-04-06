@@ -1,0 +1,35 @@
+Answer 1 is set to "class" as it simply looks at the class scope level defined variable which overrides both node and global scopes.
+Answer 2 is set to "global" as it simply looks at the global scope level defined variable
+Answer 3 is undefined as this is set in the node scope and is not visible to the gobal scope
+Answer 4 is undefined as this is set at the class level and is not visible to the global scope
+Answer 5 is set to "Also Class" as it accesses the full path even thought it is at the class scope the node scope would normally be unable to !Select 
+Answer 6 is undefined as this is set at the class level and is not visbil to the node scope
+Answer 7 is set to "Node" as it simply looks at the node scope level defined variable which overrides the global scope
+Answer 8 is undefined as the Class lab6_2 is only included within the node scope and not the global scope so this is not visible even with a full path.
+
+
+The output below will be similar to what will happen if you run the code.
+
+
+Warning: Unknown variable: 'variable3'. (file: /root/test.pp, line: 10, column: 27)
+Warning: Unknown variable: 'variable2'. (file: /root/test.pp, line: 11, column: 27)
+Warning: Unknown variable: 'lab6_2::variable2'. (file: /root/test.pp, line: 22, column: 27)
+Warning: Unknown variable: 'variable2'. (file: /root/test.pp, line: 18, column: 27)
+Notice: Compiled catalog for desktop-gmpvvpv in environment production in 0.15 seconds
+Notice: Answer 2 is: Global
+Notice: /Stage[main]/Main/Notify[Answer 2 is: Global]/message: defined 'message' as 'Answer 2 is: Global'
+Notice: Answer 3 is:
+Notice: /Stage[main]/Main/Notify[Answer 3 is: ]/message: defined 'message' as 'Answer 3 is: '
+Notice: Answer 4 is:
+Notice: /Stage[main]/Main/Notify[Answer 4 is: ]/message: defined 'message' as 'Answer 4 is: '
+Notice: Answer 8 is:
+Notice: /Stage[main]/Main/Notify[Answer 8 is: ]/message: defined 'message' as 'Answer 8 is: '
+Notice: Answer 1 is: Class
+Notice: /Stage[main]/Lab6_2/Notify[Answer 1 is: Class]/message: defined 'message' as 'Answer 1 is: Class'
+Notice: Answer 5 is: Also Class
+Notice: /Stage[main]/Main/Node[default]/Notify[Answer 5 is: Also Class]/message: defined 'message' as 'Answer 5 is: Also Class'
+Notice: Answer 6 is:
+Notice: /Stage[main]/Main/Node[default]/Notify[Answer 6 is: ]/message: defined 'message' as 'Answer 6 is: '
+Notice: Answer 7 is: Node
+Notice: /Stage[main]/Main/Node[default]/Notify[Answer 7 is: Node]/message: defined 'message' as 'Answer 7 is: Node'
+Notice: Applied catalog in 0.13 seconds
