@@ -1,7 +1,7 @@
 {
     "stage" : false,
     "replica" : false,
-    "version" : "2021.5.0",
+    "version" : "2021.7.2",
     "architecture" : "large",
     "project"       : "packtpuppet",
     "ssh_user" : "centos",
