@@ -1,0 +1,18 @@
+{
+    "stage" : false,
+    "replica" : true,
+    "version" : "2021.7.2",
+    "architecture" : "standard",
+    "project"       : "packtpuppet",
+    "ssh_user" : "centos",
+    "provider" : "azure",
+    "node_count" : 1,
+    "windows_node_count" : 1,
+    "firewall_allow" : [ "0.0.0.0/0" ],
+    "cloud_region" : "uksouth",
+    "extra_peadm_params" : {
+        "r10k_remote" : "https://github.com/davidsandilands/controlrepo-chapter11.git",
+        "r10k_private_key_file" : "/Users/david.sandilands/.ssh/id_rsa",
+        "deploy_environment" : "production"
+    }
+}
