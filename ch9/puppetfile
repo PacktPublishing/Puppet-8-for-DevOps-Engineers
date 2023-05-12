@@ -6,4 +6,7 @@ mod 'puppetlabs-stdlib', :latest
 mod 'puppetlabs-translate', :latest
 mod 'WhatsARanjit-node_manager', :latest
 mod 'puppetlabs-docker', :latest
-mod 'betadots-hdm', :latest
+mod 'puppet-hdm', :latest
+mod 'puppet-hiera', :latest
+mod 'puppetlabs-puppetserver_gem', :latest
+mod 'puppetlabs-inifile', :latest
