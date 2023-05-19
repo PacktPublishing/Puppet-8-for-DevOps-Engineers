@@ -1,5 +1,6 @@
-RSpec.configure do |c| 
-c.after(:suite) do 
-    RSpec::puppet::Coverage.report! 
-    end 
-end 
+require 'puppet-catalog_rspec'
+RSpec.configure do |c|
+  c.after(:suite) do
+    RSpec::Puppet::Coverage.report!
+  end
+end

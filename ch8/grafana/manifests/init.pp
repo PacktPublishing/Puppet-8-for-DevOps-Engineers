@@ -32,22 +32,29 @@
 # @param download_source
 #  The source to download the installation package from
 class grafana (
-  Integer   $port,
-  Boolean   $service_enabled,
-  Sensitive $grafana_password,
-  Struct[{ name       => String,
-      Optional[mode]  => Integer[4],
-      Optional[user]  => String,
-      Optional[group] => String,
-  }] $file_options,
+  Integer   $port = 8080,
+  Boolean   $service_enabled = true,
+  Sensitive $grafana_password = Sensitive('secretpassword'),
   String    $download_source = 'https://dl.grafana.com/enterprise/release/grafana-enterprise-8.4.3-1.x86_64.rpm',
-
+  Struct[{
+      name  => String,
+      mode  => String,
+      owner => String,
+      group => String,
+  }] $file_options = {
+    name  => '/etc/grafana/grafana.ini',
+    mode  => '0550',
+    owner => 'grafana',
+    group => 'root',
+  },
+  Enum['gem','yum','windows'] $package_provider = 'gem',
+  String $package_version  = 'latest'
 ) {
   contain grafana::install
   contain grafana::config
   contain grafana::service
 
   Class['grafana::install']
-  -> Class[' grafana::config']
-  ~> Class[' grafana::service']
+  -> Class['grafana::config']
+  ~> Class['grafana::service']
 }

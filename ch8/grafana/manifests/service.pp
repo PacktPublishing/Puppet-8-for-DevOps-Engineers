@@ -5,4 +5,9 @@
 # @example
 #   include grafana::service
 class grafana::service {
+  service { 'grafana':
+    ensure  => 'running',
+    enable  => $grafana::service_enabled,
+    require => Package['grafana'],
+  }
 }
