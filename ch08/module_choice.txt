@@ -1,0 +1,22 @@
+Note these answers were correct 20/05/23 and as time goes by the best module could change or potentially ownership of the same module could change
+
+1 Configuring SSH on Ubuntu
+The best answer I could see is https://forge.puppet.com/modules/ghoneycutt/ssh
+It is the most popular and is approved while https://forge.puppet.com/modules/simp/ssh does not support ubuntu and other modules had not been recently updated
+
+2 Installing and configuring IIS
+The best answer I could see is https://forge.puppet.com/modules/puppetlabs/iis
+It is most popular, recently released and supported
+
+3 Configuring the time zone using DSC on a Windows machine
+This is where you have to be careful with DSC modules they automatically wrap everything available in Powershell gallery and seeing xtimezone you might assume this would work but at https://www.powershellgallery.com/packages/xTimeZone/1.8.0.0
+
+You see the following
+
+ Release Notes
+* THIS MODULE HAS BEEN DEPRECATED. It will no longer be released. Please use the "TimeZone" resource in ComputerManagementDsc instead.
+
+So the answer is https://forge.puppet.com/modules/dsc/computermanagementdsc
+
+4 Install and configure logstash
+https://forge.puppet.com/modules/puppet/logstash is approved and most recently released
