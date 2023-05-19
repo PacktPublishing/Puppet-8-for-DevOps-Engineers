@@ -1,0 +1,13 @@
+{
+  "description": "Run facter with an option to select a fact",
+  "parameters": {
+    "fact_name": {
+      "type": "String",
+      "description": "The fact name to return"
+    }
+  },
+  "implementations": [
+    {"name": "facter_run.sh", "requirements": ["shell"]},
+    {"name": "facter_run.ps1", "requirements": ["powershell"]}
+  ]
+}
