@@ -1,0 +1,11 @@
+---
+grafana::port: 8080,
+grafana::service_enabled: true
+grafana::grafana_password: 'secretpassword'
+grafana::file_options:
+  name: '/etc/grafana/grafana.ini'
+  mode:  '0550'
+  owner: 'grafana'
+  group: 'root'
+grafana::package_provider: 'gem'
+grafana::package_version:  'latest'
