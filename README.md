@@ -50,6 +50,12 @@ With the following software and hardware list you can run all code files present
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://packt.link/vPsXh).
 
+## Errata
+Page 7: the code example has two typos: <br>
+* line 2: ```uid => '1234'.``` should instead be ```uid => '1234',``` <br>
+* line 7: ```Gid => '123'``` should instead be ```gid => '123'```
+
+
 ### Related products
 * Learning DevOps - Second Edition [[Packt]](https://www.packtpub.com/product/learning-devops-second-edition/9781801818964?utm_source=github&utm_medium=repository&utm_campaign=9781801818964) [[Amazon]](https://www.amazon.com/dp/1801818967)
 
